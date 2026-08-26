@@ -1,4 +1,4 @@
-public import Storage_Generational_Primitives
+public import Storage_Generational
 public import Store_Primitive
 
 public struct Node<Element: ~Copyable, let N: Int>: ~Copyable {

@@ -1,4 +1,4 @@
-public import Buffer_Linked_Primitives
+public import Buffer_Linked
 
 public typealias DoublyLinked<E: ~Copyable> =
     Buffer<Storage<Memory.Allocator<Memory.Heap>.Pool>.Generational<Node<E, 2>>>.Linked<2>

@@ -1,5 +1,5 @@
-import Buffer_Linked_Primitives
-import Buffer_Linked_Primitives_Test_Support
+import Buffer_Linked
+import Buffer_Linked_Test_Support
 import Testing
 
 @Suite

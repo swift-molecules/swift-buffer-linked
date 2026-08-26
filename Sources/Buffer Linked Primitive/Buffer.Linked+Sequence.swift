@@ -1,5 +1,5 @@
 public import Buffer_Primitive
-public import Storage_Generational_Primitives
+public import Storage_Generational
 
 extension Buffer.Linked where S: ~Copyable {
 

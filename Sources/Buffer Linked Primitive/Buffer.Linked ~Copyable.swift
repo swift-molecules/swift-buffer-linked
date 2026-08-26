@@ -1,5 +1,5 @@
 public import Buffer_Primitive
-public import Storage_Generational_Primitives
+public import Storage_Generational
 public import Store_Primitive
 
 extension Buffer.Linked where S: Store.Generational.`Protocol`, S: ~Copyable {

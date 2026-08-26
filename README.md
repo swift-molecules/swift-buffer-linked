@@ -1,4 +1,4 @@
-# Buffer Linked Primitives
+# Buffer Linked
 
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
@@ -11,7 +11,7 @@ A move-only, pool-backed linked list over the `Buffer` namespace: singly- or dou
 `Buffer.Linked<N>` is a linked list whose nodes live in a generational node pool rather than in individually allocated boxes. The link count `N` is a compile-time value: `Buffer.Linked<1>` is singly-linked (next only; O(n) `removeBack`), while `Buffer.Linked<2>` is doubly-linked (next + prev, giving O(1) `removeBack`). Every operation carries its element type, so the same buffer holds copyable or `~Copyable` elements without a separate variant.
 
 ```swift
-import Buffer_Linked_Primitives
+import Buffer_Linked
 
 // The truthful storage spelling is a generational node pool on the heap.
 // Name it once, then use the short alias.
@@ -37,7 +37,7 @@ Inserting past `minimumCapacity` either throws `Buffer.Linked.Error.capacityExce
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-primitives/swift-buffer-linked-primitives.git", branch: "main")
+    .package(url: "https://github.com/swift-molecules/swift-buffer-linked.git", branch: "main")
 ]
 ```
 
@@ -45,7 +45,7 @@ dependencies: [
 .target(
     name: "App",
     dependencies: [
-        .product(name: "Buffer Linked Primitives", package: "swift-buffer-linked-primitives"),
+        .product(name: "Buffer Linked", package: "swift-buffer-linked"),
     ]
 )
 ```
@@ -61,8 +61,8 @@ Two library products plus a test-support product. The list type is move-only ove
 | Product | Target | Purpose |
 |---------|--------|---------|
 | `Buffer Linked Primitive` | `Sources/Buffer Linked Primitive/` | The lean move-only `Buffer<S>.Linked<N>` type — its stored state, double-ended insert/remove, traversal, peek, and relocating growth, plus the `Node<Element, N>` storage node and `Buffer.Linked.Error`. |
-| `Buffer Linked Primitives` | `Sources/Buffer Linked Primitives/` | Umbrella — re-exports the type module and the `Buffer` / `Storage` / `Memory` vocabulary needed to spell the storage column. |
-| `Buffer Linked Primitives Test Support` | `Tests/Support/` | Test conveniences: `DoublyLinked` / `SinglyLinked` aliases and an array-seeded initializer. |
+| `Buffer Linked` | `Sources/Buffer Linked/` | Umbrella — re-exports the type module and the `Buffer` / `Storage` / `Memory` vocabulary needed to spell the storage column. |
+| `Buffer Linked Test Support` | `Tests/Support/` | Test conveniences: `DoublyLinked` / `SinglyLinked` aliases and an array-seeded initializer. |
 
 Foundation-free.
 
@@ -81,7 +81,7 @@ Foundation-free.
 
 ## Related Packages
 
-- [`swift-buffer-primitives`](https://github.com/swift-primitives/swift-buffer-primitives) — the `Buffer` namespace and capacity-growth vocabulary this discipline extends.
+- [`swift-buffer`](https://github.com/swift-molecules/swift-buffer) — the `Buffer` namespace and capacity-growth vocabulary this discipline extends.
 
 ---
 
