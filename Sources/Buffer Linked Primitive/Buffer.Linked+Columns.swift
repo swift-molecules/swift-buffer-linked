@@ -1,4 +1,4 @@
-public import Buffer_Primitive
+public import Buffer
 public import Memory_Allocator_Pool
 public import Memory_Allocator_Primitive
 public import Memory

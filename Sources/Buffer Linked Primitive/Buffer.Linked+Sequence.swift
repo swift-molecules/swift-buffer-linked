@@ -1,4 +1,4 @@
-public import Buffer_Primitive
+public import Buffer
 public import Storage_Generational
 
 extension Buffer.Linked where S: ~Copyable {

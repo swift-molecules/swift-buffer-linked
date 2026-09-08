@@ -23,7 +23,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-buffer.git",
+            url: "https://github.com/swift-atoms/swift-buffer.git",
             branch: "main"
         ),
         .package(
@@ -52,7 +52,7 @@ let package = Package(
         .target(
             name: "Buffer Linked Primitive",
             dependencies: [
-                .product(name: "Buffer Primitive", package: "swift-buffer"),
+                .product(name: "Buffer", package: "swift-buffer"),
                 .product(name: "Store Primitive", package: "swift-storage"),
                 .product(
                     name: "Storage Generational",

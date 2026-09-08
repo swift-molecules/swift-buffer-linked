@@ -1,4 +1,4 @@
-@_exported public import Buffer_Primitive
+@_exported public import Buffer
 @_exported public import Memory_Allocator_Pool
 @_exported public import Memory_Allocator_Primitive
 @_exported public import Memory
