@@ -1,6 +1,6 @@
 public import Buffer
-public import Storage_Generational
-public import Store_Primitive
+public import Storage
+public import Store
 
 extension Buffer.Linked where S: Store.Generational.`Protocol`, S: ~Copyable {
 

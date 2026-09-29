@@ -27,11 +27,10 @@ let package = Package(
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-storage.git",
-            branch: "main"
-        ),
+            url: "https://github.com/swift-atoms/swift-storage.git",
+            branch: "main", traits: ["Generational"]),
         .package(
-            url: "https://github.com/swift-molecules/swift-storage-generational.git",
+            url: "https://github.com/swift-atoms/swift-store.git",
             branch: "main"
         ),
         .package(
@@ -53,14 +52,10 @@ let package = Package(
             name: "Buffer Linked Primitive",
             dependencies: [
                 .product(name: "Buffer", package: "swift-buffer"),
-                .product(name: "Store Primitive", package: "swift-storage"),
-                .product(
-                    name: "Storage Generational",
-                    package: "swift-storage-generational"
-                ),
+                .product(name: "Store", package: "swift-store"),
                 .product(name: "Memory", package: "swift-memory"),
                 .product(
-                    name: "Memory Allocator Primitive",
+                    name: "Memory Allocator",
                     package: "swift-memory-allocation"
                 ),
                 .product(
@@ -71,6 +66,7 @@ let package = Package(
                     name: "Ownership Shared Primitive",
                     package: "swift-ownership-shared"
                 ),
+                .product(name: "Storage", package: "swift-storage"),
             ]
         ),
 
