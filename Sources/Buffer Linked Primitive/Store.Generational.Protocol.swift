@@ -14,12 +14,6 @@ public protocol __StoreGenerationalProtocol: ~Copyable {
     subscript(_ handle: Store.Generational.Handle) -> Element { get set }
 }
 
-extension __StoreGenerationalProtocol where Self: ~Copyable {
-
-    @inlinable
-    public mutating func unshare() {}
-}
-
 extension Store.Generational {
 
     public typealias `Protocol` = __StoreGenerationalProtocol
