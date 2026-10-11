@@ -73,41 +73,35 @@ let package = Package(
         .target(
             name: "Buffer Linked",
             dependencies: [
-                "Buffer Linked Primitive"
+                .target(name: "Buffer Linked Primitive")
             ]
         ),
 
         .target(
             name: "Buffer Linked Test Support",
             dependencies: [
-                "Buffer Linked"
+                .target(name: "Buffer Linked")
             ],
             path: "Tests/Support"
         ),
 
         .testTarget(
             name: "Buffer Linked Tests",
-            dependencies: ["Buffer Linked", "Buffer Linked Test Support"]
+            dependencies: [.target(name: "Buffer Linked"), .target(name: "Buffer Linked Test Support")]
         ),
     ],
     swiftLanguageModes: [.v6]
 )
 
 for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
-    let ecosystem: [SwiftSetting] = [
+    target.swiftSettings = (target.swiftSettings ?? []) + [
         .strictMemorySafety(),
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
         .enableUpcomingFeature("MemberImportVisibility"),
         .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
-        .enableExperimentalFeature("Lifetimes"),
         .enableUpcomingFeature("InferIsolatedConformances"),
+        .enableExperimentalFeature("Lifetimes"),
+        .treatAllWarnings(as: .error),
     ]
-
-    let package: [SwiftSetting] = [
-        .enableExperimentalFeature("BuiltinModule"),
-        .enableExperimentalFeature("RawLayout"),
-    ]
-
-    target.swiftSettings = (target.swiftSettings ?? []) + ecosystem + package
 }

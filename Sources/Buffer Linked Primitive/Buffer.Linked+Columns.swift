@@ -22,7 +22,7 @@ extension Buffer.Linked where S: ~Copyable {
     package mutating func _growTo<E: ~Copyable>(_ minimumCapacity: Int)
     where S == Storage<Memory.Allocator<Memory.Heap>.Pool>.Generational<Node<E, N>> {
         guard _capacity < minimumCapacity else { return }
-        let newCapacity = Swift.max(minimumCapacity, Swift.max(_capacity * 2, 4))
+        let newCapacity = Swift::max(minimumCapacity, Swift::max(_capacity * 2, 4))
         storage.grow(to: Index<Node<E, N>>.Count(UInt(newCapacity)))
         _capacity = newCapacity
     }
@@ -80,7 +80,7 @@ extension Buffer.Linked where S: ~Copyable {
         >
     {
         guard _capacity < minimumCapacity else { return }
-        let newCapacity = Swift.max(minimumCapacity, Swift.max(_capacity * 2, 4))
+        let newCapacity = Swift::max(minimumCapacity, Swift::max(_capacity * 2, 4))
         storage.grow(to: Index<Node<E, N>>.Count(UInt(newCapacity)))
         _capacity = newCapacity
     }

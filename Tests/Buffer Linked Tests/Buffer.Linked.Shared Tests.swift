@@ -29,7 +29,7 @@ struct `Buffer.Linked.Shared Tests` {
 
     @Test
     func `copy then mutate leaves the original untouched`() throws {
-        var a: DoublyLinkedShared<Int> = try .init([1, 2, 3], minimumCapacity: 8)
+        let a: DoublyLinkedShared<Int> = try .init([1, 2, 3], minimumCapacity: 8)
         var b = a
         try b.insertBack(4)
         #expect(collect(a) == [1, 2, 3])
@@ -51,7 +51,7 @@ struct `Buffer.Linked.Shared Tests` {
 
     @Test
     func `removeFront on a shared copy does not disturb the sibling`() throws {
-        var a: DoublyLinkedShared<Int> = try .init([10, 20, 30], minimumCapacity: 8)
+        let a: DoublyLinkedShared<Int> = try .init([10, 20, 30], minimumCapacity: 8)
         var b = a
         _ = b.removeFront()
         _ = b.removeFront()

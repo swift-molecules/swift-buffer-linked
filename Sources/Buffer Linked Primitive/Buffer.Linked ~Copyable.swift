@@ -1,5 +1,5 @@
 public import Buffer
-public import Storage
+internal import Storage
 public import Store
 
 extension Buffer.Linked where S: Store.Generational.`Protocol`, S: ~Copyable {
@@ -93,7 +93,7 @@ extension Buffer.Linked where S: Store.Generational.`Protocol`, S: ~Copyable {
 extension Buffer.Linked where S: Store.Generational.`Protocol`, S: ~Copyable {
 
     @inlinable
-    public func forEach<E: ~Copyable, Failure: Swift.Error>(
+    public func forEach<E: ~Copyable, Failure: Swift::Error>(
         _ body: (borrowing E) throws(Failure) -> Void
     ) throws(Failure)
     where S.Element == Node<E, N> {
@@ -105,7 +105,7 @@ extension Buffer.Linked where S: Store.Generational.`Protocol`, S: ~Copyable {
     }
 
     @inlinable
-    public func forEachReversed<E: ~Copyable, Failure: Swift.Error>(
+    public func forEachReversed<E: ~Copyable, Failure: Swift::Error>(
         _ body: (borrowing E) throws(Failure) -> Void
     ) throws(Failure)
     where S.Element == Node<E, N> {
@@ -121,7 +121,7 @@ extension Buffer.Linked where S: Store.Generational.`Protocol`, S: ~Copyable {
 extension Buffer.Linked where S: Store.Generational.`Protocol`, S: ~Copyable {
 
     @inlinable
-    public func peekFront<E: ~Copyable, R, Failure: Swift.Error>(
+    public func peekFront<E: ~Copyable, R, Failure: Swift::Error>(
         _ body: (borrowing E) throws(Failure) -> R
     ) throws(Failure) -> R?
     where S.Element == Node<E, N> {
@@ -130,7 +130,7 @@ extension Buffer.Linked where S: Store.Generational.`Protocol`, S: ~Copyable {
     }
 
     @inlinable
-    public func peekBack<E: ~Copyable, R, Failure: Swift.Error>(
+    public func peekBack<E: ~Copyable, R, Failure: Swift::Error>(
         _ body: (borrowing E) throws(Failure) -> R
     ) throws(Failure) -> R?
     where S.Element == Node<E, N> {

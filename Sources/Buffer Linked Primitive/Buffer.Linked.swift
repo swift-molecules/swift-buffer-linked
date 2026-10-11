@@ -1,5 +1,5 @@
 public import Buffer
-public import Storage
+internal import Storage
 public import Store
 
 extension Buffer where S: ~Copyable {
