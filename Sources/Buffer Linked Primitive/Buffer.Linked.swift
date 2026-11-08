@@ -1,10 +1,10 @@
 public import Buffer
-internal import Storage
-public import Store
 public import Memory
 public import Memory_Allocator
 public import Memory_Allocator_Pool
 public import Ownership_Shared_Primitive
+internal import Storage
+public import Store
 
 extension Buffer where S: ~Copyable {
 
